@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">User Sample ID Example</string>
+    <string name="user_id_label">User ID:</string>
+    <string name="user_sample_id_label">User Sample ID:</string>
+</resources>
