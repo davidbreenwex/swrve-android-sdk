@@ -22,9 +22,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SwrveSDK.onCreate(this);
         userId = SwrveSDK.getUserId();
-        // Generate integer from 1-100 from user_id string and
-        // send to Swrve as a user property update
+        // Generate integer from 1-100 from user_id string
         userSampleId = UserSampleIdUtils.generateNumberForUser(userId);
+
+        // Update the user user_sample_id user property in Swrve
+        Map<String, String> attributes = new HashMap<String, String>();
+        attributes.put("user_sample_id", String.valueOf(userSampleId));
+        SwrveSDK.userUpdate(attributes);
+        SwrveSDK.sendQueuedEvents();
 
         setContentView(R.layout.activity_main);
         userIdTextView = (TextView) findViewById(user_id_text_view);

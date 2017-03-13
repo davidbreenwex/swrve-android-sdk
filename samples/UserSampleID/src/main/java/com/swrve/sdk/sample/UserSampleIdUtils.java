@@ -29,12 +29,6 @@ public class UserSampleIdUtils {
         // From this decimal get an int from 1-100
         int userSampleId = (int) Math.ceil(user_range * 100.0d);
 
-        // Update the user user_sample_id user property in Swrve
-        Map<String, String> attributes = new HashMap<String, String>();
-        attributes.put("user_sample_id", String.valueOf(userSampleId));
-        SwrveSDK.userUpdate(attributes);
-        SwrveSDK.sendQueuedEvents();
-
         return userSampleId;
     }
 }
